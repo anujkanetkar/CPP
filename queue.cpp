@@ -2,13 +2,13 @@
 
 using namespace std;
 
+#define MAX 5
 class queue
 {
 	private:
 		int front, rear;
-		int a[5];
-		static int FALSE;
-		static int TRUE;
+		int a[MAX];
+		
 	
 	public:
 		queue()
@@ -16,41 +16,42 @@ class queue
 			front = rear = -1;
 		}
 
-		int isEmpty()
+		bool isEmpty()
 		{
 			if(rear = -1)
-				return FALSE;
+				return true;
 			else 
-				return TRUE;
+				return false;
 		}
 		
-		int isFull()
+		bool isFull()
 		{
-			if(rear > 4)
-				return FALSE;
+			if(rear == MAX-1)
+				return true;
 			else 
-				return TRUE;
+				return false;
 		}
 
 		void add(int n)
 		{
 			rear++;
-			if(rear =  0)
-				front = rear;
 			a[rear] = n;
+			if(front ==  -1)
+				front = 0;
 		}	
 
 		int del()
 		{
-			int n = a[rear];
-			rear--;
+			int n = a[front];
+			if(front == rear)
+				front = rear = -1;
+			else
+				front++;
 			return n;
 		}	
 
 };
 
-int queue::FALSE = 1;
-int queue::TRUE = 0;
 
 int main()
 {
@@ -66,4 +67,61 @@ int main()
 		q.add(10);
 	else 
 		cout << "Queue is full" << endl;
+
+	  if( !q.isFull() )
+                q.add(20);
+        else
+                cout << "Queue is full" << endl;
+
+	  if( !q.isFull() )
+                q.add(30);
+        else
+                cout << "Queue is full" << endl;
+
+	  if( !q.isFull() )
+                q.add(40);
+        else
+                cout << "Queue is full" << endl;
+
+	  if( !q.isFull() )
+                q.add(50);
+        else
+                cout << "Queue is full" << endl;
+
+	  if( !q.isFull() )
+                q.add(60);
+        else
+                cout << "Queue is full" << endl ;
+
+	 if( !q.isEmpty() )
+                q.del();
+        else
+                cout << "Queue is empty" << endl;
+
+	 if( !q.isEmpty() )
+                q.del();
+        else
+                cout << "Queue is empty" << endl;
+
+	 if( !q.isEmpty() )
+                q.del();
+        else
+                cout << "Queue is empty" << endl;
+
+	 if( !q.isEmpty() )
+                q.del();
+        else
+                cout << "Queue is empty" << endl;
+
+	 if( !q.isEmpty() )
+                q.del();
+        else
+                cout << "Queue is empty" << endl;
+
+
+	 if( !q.isEmpty() )
+                q.del();
+        else
+                cout << "Queue is empty" << endl;
+
 }
