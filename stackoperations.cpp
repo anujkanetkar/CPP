@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
+#define MAX 5
 
 class stack
 {
 	private:
 		int top;
-		int a[5];
-		static int TRUE;
-		static int FALSE; 
+		int a[MAX];
+		
 		
 	public:
 		stack()
@@ -28,26 +28,23 @@ class stack
 			return n;			
 		}
 
-		int isEmpty()
+		bool isEmpty()
 		{
 			if(top == -1)
-				return FALSE;
+				return true;
 			else
-				return TRUE;
+				return false;
 		}
 
-		int isFull()
+		bool isFull()
 		{
-			if(top > 4)
-				return FALSE;
+			if(top == MAX-1)
+				return true;
 			else
-				return TRUE;		
+				return false;		
 		}
 
 };
-
-int stack::TRUE = 0;
-int stack::FALSE = 1;
 
 int main()
 {
@@ -57,10 +54,60 @@ int main()
 		s.push(10);
 	else
 		cout << "Stack is full" << endl;
+	
+	 if( !s.isFull() )
+                s.push(20);
+        else
+                cout << "Stack is full" << endl;
 
+	 if( !s.isFull() )
+                s.push(30);
+        else
+                cout << "Stack is full" << endl;
+
+	 if( !s.isFull() )
+                s.push(40);
+        else
+                cout << "Stack is full" << endl;
+	
+	 if( !s.isFull() )
+                s.push(50);
+        else
+                cout << "Stack is full" << endl;
+
+	 if( !s.isFull() )
+                s.push(60);
+        else
+                cout << "Stack is full" << endl;
 
 	if( !s.isEmpty() )
 		s.pop();
 	else
 		cout << "Stack is empty" << endl;
+
+	 if( !s.isEmpty() )
+                s.pop();
+        else
+                cout << "Stack is empty" << endl;
+
+	 if( !s.isEmpty() )
+                s.pop();
+        else
+                cout << "Stack is empty" << endl;
+
+	 if( !s.isEmpty() )
+                s.pop();
+        else
+                cout << "Stack is empty" << endl;
+
+	 if( !s.isEmpty() )
+                s.pop();
+        else
+                cout << "Stack is empty" << endl;
+
+	 if( !s.isEmpty() )
+                s.pop();
+        else
+                cout << "Stack is empty" << endl;
+
 }
