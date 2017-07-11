@@ -1,16 +1,16 @@
 #include <iostream>
-using namespace std;
-#define MAX 5
 
-class stack
+using namespace std;
+
+const int MAX = 5;
+
+class Stack
 {
 	private:
 		int top;
 		int a[MAX];
-		
-		
 	public:
-		stack()
+		Stack()
 		{
 			top = -1;
 		}
@@ -48,65 +48,110 @@ class stack
 
 int main()
 {
-	stack s;
+	Stack s;
+	int num;
 	
+	if( !s.isEmpty() )
+	{
+		num = s.pop();	
+		cout << "The popped number is: " << num << endl;
+	}
+	else
+		cout << "Stack is empty" << endl;
+		
 	if( !s.isFull() )
+	{
 		s.push(10);
+		cout << "The number pushed is 10" << endl; 
+	}
 	else
 		cout << "Stack is full" << endl;
 	
-	 if( !s.isFull() )
+	if( !s.isFull() )
+	{
                 s.push(20);
+		cout << "The number pushed is 20" << endl;
+	}
         else
                 cout << "Stack is full" << endl;
 
-	 if( !s.isFull() )
+	if( !s.isFull() )
+	{
                 s.push(30);
+		cout << "The number pushed is 30" << endl;
+	}
         else
                 cout << "Stack is full" << endl;
 
-	 if( !s.isFull() )
+	if( !s.isFull() )
+	{
                 s.push(40);
+		cout << "The number pushed is 40" << endl;
+	}
         else
                 cout << "Stack is full" << endl;
 	
-	 if( !s.isFull() )
+	if( !s.isFull() )
+	{
                 s.push(50);
+		cout << "The number pushed is 50" << endl;
+	}
         else
                 cout << "Stack is full" << endl;
 
-	 if( !s.isFull() )
+	if( !s.isFull() )
+	{
                 s.push(60);
+		cout << "The number pushed is 10" << endl;
+	}
         else
                 cout << "Stack is full" << endl;
 
 	if( !s.isEmpty() )
-		s.pop();
+	{
+		num = s.pop();
+		cout << "The popped number is: " << num << endl;
+	}
 	else
 		cout << "Stack is empty" << endl;
 
-	 if( !s.isEmpty() )
-                s.pop();
+	if( !s.isEmpty() )
+	{
+               num =  s.pop();
+		cout << "The popped number is: " << num << endl;
+	}
         else
                 cout << "Stack is empty" << endl;
 
-	 if( !s.isEmpty() )
-                s.pop();
+	if( !s.isEmpty() )
+        { 
+	  	num = s.pop();
+		cout << "The popped number is: " << num << endl;
+	}
         else
                 cout << "Stack is empty" << endl;
 
-	 if( !s.isEmpty() )
-                s.pop();
+	if( !s.isEmpty() )
+	{
+                num = s.pop();
+		cout << "The popped number is: " << num << endl;
+	}
         else
                 cout << "Stack is empty" << endl;
 
-	 if( !s.isEmpty() )
-                s.pop();
+	if( !s.isEmpty() )
+	{
+                num = s.pop();
+		cout << "The popped number is: " << num << endl;
+	}
         else
                 cout << "Stack is empty" << endl;
 
-	 if( !s.isEmpty() )
-                s.pop();
+	if( !s.isEmpty() )
+	{
+                num = s.pop();
+		cout << "The popped number is: " << num << endl;
+	}
         else
                 cout << "Stack is empty" << endl;
 
