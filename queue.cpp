@@ -8,9 +8,7 @@ class Queue
 {
 	private:
 		int front, rear;
-		int a[MAX];
-		
-	
+		int a[MAX];		
 	public:
 		Queue()
 		{
