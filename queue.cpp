@@ -2,8 +2,9 @@
 
 using namespace std;
 
-#define MAX 5
-class queue
+const int MAX = 5;
+
+class Queue
 {
 	private:
 		int front, rear;
@@ -11,14 +12,14 @@ class queue
 		
 	
 	public:
-		queue()
+		Queue()
 		{
 			front = rear = -1;
 		}
 
 		bool isEmpty()
 		{
-			if(rear = -1)
+			if(rear == -1)
 				return true;
 			else 
 				return false;
@@ -55,72 +56,114 @@ class queue
 
 int main()
 {
-	queue q;
-
+	Queue q;
+	int num;
 
 	if( !q.isEmpty() )
-		q.del();
+	{
+		num = q.del();
+		cout << "The deleted number is: " << num << endl;
+	}
 	else
 		cout << "Queue is empty" << endl;
 
 	if( !q.isFull() )
+	{
 		q.add(10);
+		cout << "The number added is 10" << endl;
+	}
 	else 
 		cout << "Queue is full" << endl;
 
-	  if( !q.isFull() )
-                q.add(20);
+	if( !q.isFull() )
+        {
+		q.add(20);
+		cout << "The number added is 20" << endl;
+	}
+		
+
+        else	
+                cout << "Queue is full" << endl;
+
+	if( !q.isFull() )
+	{
+          	q.add(30);
+		cout << "The number added is 30" << endl;
+
+	}
         else
                 cout << "Queue is full" << endl;
 
-	  if( !q.isFull() )
-                q.add(30);
-        else
-                cout << "Queue is full" << endl;
-
-	  if( !q.isFull() )
+	if( !q.isFull() )
+	{
                 q.add(40);
+		cout << "The number added is 40" << endl;
+	}
         else
                 cout << "Queue is full" << endl;
 
-	  if( !q.isFull() )
+	if( !q.isFull() )
+	{
                 q.add(50);
+		cout << "The number added is 50" << endl;
+	}
         else
                 cout << "Queue is full" << endl;
 
-	  if( !q.isFull() )
+	if( !q.isFull() )
+	{
                 q.add(60);
+		cout << "The number added is 10" << endl;
+	}
         else
                 cout << "Queue is full" << endl ;
 
-	 if( !q.isEmpty() )
-                q.del();
+	if( !q.isEmpty() )
+	{
+                num = q.del();
+		cout << "The deleted number is: " << num << endl;
+	}
         else
                 cout << "Queue is empty" << endl;
 
-	 if( !q.isEmpty() )
-                q.del();
+	if( !q.isEmpty() )
+        {
+		num = q.del();
+                cout << "The deleted number is: " << num << endl;		
+	}
         else
                 cout << "Queue is empty" << endl;
 
-	 if( !q.isEmpty() )
-                q.del();
+	if( !q.isEmpty() )
+	{
+		num = q.del();
+                cout << "The deleted number is: " << num << endl;	
+        }
         else
                 cout << "Queue is empty" << endl;
 
-	 if( !q.isEmpty() )
-                q.del();
+	if( !q.isEmpty() )
+        {
+		num = q.del();
+                cout << "The deleted number is: " << num << endl;
+	}	
         else
                 cout << "Queue is empty" << endl;
 
-	 if( !q.isEmpty() )
-                q.del();
+	if( !q.isEmpty() )
+        {
+		num = q.del();
+                cout << "The deleted number is: " << num << endl;
+	}
         else
                 cout << "Queue is empty" << endl;
 
 
-	 if( !q.isEmpty() )
-                q.del();
+	if( !q.isEmpty() )
+        {
+		num = q.del();
+                cout << "The deleted number is: " << num << endl;
+	}
         else
                 cout << "Queue is empty" << endl;
 
