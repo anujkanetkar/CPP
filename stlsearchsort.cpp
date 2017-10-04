@@ -7,23 +7,20 @@ using namespace std;
 class Person
 {
 	private:
-		string name;
+		string fname;
+		string lname;
 		string dob;
 		string telno;
 	public:
 		Person()
 		{
-			name = dob = telno = "";
+			fname = lname = dob = telno = "";
 		}
 
-		Person(string s)
-		{
-			name = s;
-		}
 
 		void getinfo();
 		void display();
-		void setname(string);
+		void setname(string, string);
 
 	friend bool operator < (const Person&, const Person&);
 	friend bool operator == (const Person&, const Person&);
@@ -31,9 +28,11 @@ class Person
 
 void Person :: getinfo()
 {
-	cout << "Enter name" << endl;
-	cin.ignore();
-	getline(cin, name);
+	cout << "Enter first name" << endl;
+	//cin.ignore();
+	cin >> fname;
+	cout << "Enter last name" << endl;
+	cin >> lname;  
 	cout << "Enter birth date" << endl;
 	cin.ignore();
 	cin >> dob;
@@ -42,25 +41,26 @@ void Person :: getinfo()
 	cin >> telno;
 }
 
-void Person :: setname(string s)
+void Person :: setname(string s1, string s2)
 {
-	name = s;
+	fname = s1;
+	lname = s2;
 	dob = telno = "";
 }
 
 void Person :: display()
 {
-	cout << name << "\t" << dob  << "\t" << telno << endl;
+	cout << fname << lname << "\t" << dob  << "\t" << telno << endl;
 }
 
 bool operator < (const Person &p1, const Person &p2)
 {
-	return(p1.name < p2.name);
+	return(p1.fname < p2.fname);
 }
 
 bool operator == (const Person &p1, const Person &p2)
 {
-	return(p1.name == p2.name) ? true : false;
+	return(p1.fname == p2.fname) ? true : false;
 }
 
 class Item
@@ -126,13 +126,14 @@ int main()
 	list <Item> li;
 	int choice;
 	char ch = 'y';
-	string pers_name, qt_name;
+	string fn, ln, qt_name;
 
-	Person p, p1;
-	Item i, i1;
+	Person p1;
+	Item i1;
 	
 	while(ch == 'y')
 	{
+		Person p;
 		p.getinfo();
 		lp.push_back(p);
 		cout << "Add another record? (y/n)" << endl;
@@ -150,6 +151,7 @@ int main()
 	{
 		cout << "1. Sort Person record according to name" << endl;
 		cout << "2. Search name of person" << endl;
+		cout << "0. Skip ahead" << endl;
 
 		cout << "Enter choice" << endl;
 		cin >> choice;
@@ -157,6 +159,7 @@ int main()
 		switch(choice)
 		{
 			case 1:
+			{
 				lp.sort();
 				list <Person> :: iterator ip = lp.begin();
 				while(ip != lp.end())
@@ -164,12 +167,17 @@ int main()
 					ip -> display();
 					ip++;
 				}
+			}
 				break;
 			case 2:
-				cout << "Enter name to be searched" << endl;
-				cin.ignore();
-				getline(cin, pers_name);
-				p1.setname(pers_name);
+			{
+				cout << "Enter first name to be searched" << endl;
+				//cin.ignore();
+				//getline(cin, pers_name);
+				cin >> fn;
+				cout << "Enter last name to be searched" << endl;
+				cin >> ln;  
+				p1.setname(fn, ln);
 				list <Person> :: iterator ip1;
 				ip1 = find(lp.begin(), lp.end(), p1);
 				
@@ -177,12 +185,18 @@ int main()
 				{
 					ip1 -> display();
 				}
+			}
+				break;
+			default:
+				goto there;	 
 		}
 	}
 
-	
+	there:
+	ch = 'y';
 	while(ch == 'y')
 	{
+		Item i;
 		i.getinfo();
 		li.push_back(i);
 		cout << "Add another record? (y/n)" << endl;
@@ -200,6 +214,7 @@ int main()
 		switch(choice)
 		{
 			case 1:
+			{
 				li.sort();
 				list <Item> :: iterator ii = li.begin();
 				while(ii != li.end())
@@ -207,8 +222,10 @@ int main()
 					ii -> display();
 					ii++;
 				}
+			}
 				break;
 			case 2:
+			{
 				cout << "Enter quantity to be searched" << endl; 
 				cin >> qt_name;
 				i1.getqty(qt_name);
@@ -217,8 +234,11 @@ int main()
 				if(ii1 != li.end())
 				{
 					ii1 -> display();
-				} 
+				}
+			} 
 				break;	
+			default:
+				ch = 'n';
 		}  
 	}
 }
